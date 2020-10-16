@@ -1,0 +1,21 @@
+movep(p[0.151,-0.608,0.238,d2r(180),d2r(0),d2r(0)])
+zero_ftsensor()
+thread ForceThread():
+	while(True):
+		force_mode(p[0,0,0,0,0,0],[0,0,1,0,0,0],[0,0,-2,0,0,0],2,[0.1,0.1,0.15,0.17,0.17,0.17])
+		sync()
+	end
+end
+thrd = run ForceThread()
+i=0
+while i<5:
+	movep(p[0.151,-0.608,0.238,d2r(180),d2r(0),d2r(0)])
+	movep(p[-0.089,-0.601,0.226,d2r(180),d2r(0),d2r(0)])
+	movep(p[0.035,-0.439,0.211,d2r(180),d2r(0),d2r(0)])
+	i= i+1
+end
+
+kill thrd
+end_force_mode()
+movep(p[0.151,-0.608,0.238,d2r(180),d2r(0),d2r(0)])
+halt
